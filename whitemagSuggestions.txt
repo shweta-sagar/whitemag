@@ -1,0 +1,4 @@
+//alter http://localhost/whitemag/sites/all/themes/trips2017/css/styles.css?otn3i7 file
+
+filter_wm #filters{position: fixed; width: 318px;}
+

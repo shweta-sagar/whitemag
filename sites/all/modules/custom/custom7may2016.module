@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file
+ * Module file for WM Custom module.
+ *
+ */
+
+/**
+ * Implementation of hook_webform_select_options_info().
+ * See webform/webform_hooks.php for further information on this hook in the Webform API.
+ */
+function custom_webform_select_options_info() {
+  $items = array();
+    $items['node_titles'] = array(
+      'title' => t('Trip titles'),
+      'options callback' => 'custom_webform_pre_build_list_trip_titles'
+    );
+  return $items;
+}
+/**
+ * The following piece of code is based on the trips in WM.
+ *
+ */ 
+function custom_webform_pre_build_list_trip_titles() {
+  $options = array();
+  $result = db_query("SELECT nid, title FROM {node} where status=1 and type=:type ORDER BY title", array(':type' => 'trips' ));
+  foreach ($result as $row) {
+    $options[$row->nid] = $row->title;
+  }
+  return $options;
+  
+}
+

@@ -1,0 +1,165 @@
+.icon-remove {
+    font-size: 15px;
+	float:right;
+	padding:0 20px;
+}
+.active .icon-reorder:before {
+    content: "\f00d";
+}
+.dpmenu-close {
+	cursor: pointer;
+	display: block;
+	position: absolute;
+	font-size: 14px;
+	color: #fff;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	top: 20px;
+	right: 5px;
+	-webkit-transition: all .1s ease-in-out;
+	   -moz-transition: all .1s ease-in-out;
+		-ms-transition: all .1s ease-in-out;
+		 -o-transition: all .1s ease-in-out;
+			transition: all .1s ease-in-out;
+}
+
+.dpmenu-close:hover {
+	color: #ff0000;
+	-webkit-transition: all .1s ease-in-out;
+	   -moz-transition: all .1s ease-in-out;
+		-ms-transition: all .1s ease-in-out;
+		 -o-transition: all .1s ease-in-out;
+			transition: all .1s ease-in-out;
+}
+
+
+.dpmenu {
+	position: fixed;
+	/*right: -200px;*/ left: 0;
+	width: 0px;
+	height: 100%;
+	top: -5px;
+	z-index: 100000;
+	text-align: left;
+}
+
+.dpmenu.dpmenu-open {
+	left: 260px;
+}
+
+.dpmenu-wrap {
+	position: absolute;
+	top: 0;
+	/*left: 60px;*/left: -260px;
+	padding:20px 0 0 25px;
+	background: #1a1a1a;
+	width: 260px;
+	height: 100%;
+}
+.dpmenu-wrap hr {
+    border-color: #303030;
+    border-width: 1px;
+}
+.dpmenu-wrap a, .dpmenu-wrap a:hover{
+    width: 100%;
+    height: 100%;
+   /* display: block;*/
+	text-decoration:none;
+    color: #fff!important;
+}
+.dpmenu-wrap  p{
+    margin: 0px 0px 10px;
+    padding: 0px;
+}
+.dpmenu-wrap  h2{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
+    color: #fff;
+    margin: 0px 0px 15px;
+    padding: 0px;
+    letter-spacing: 2px;
+}
+
+.dpmenu-close:hover {
+	color: #ffffff;
+	-webkit-transition: all .1s ease-in-out;
+	   -moz-transition: all .1s ease-in-out;
+		-ms-transition: all .1s ease-in-out;
+		 -o-transition: all .1s ease-in-out;
+			transition: all .1s ease-in-out;
+}
+
+/* Push the body after clicking the menu button */
+.body-push {
+	overflow-x: hidden;
+	position: relative;
+	left: 0;
+}
+/*update*/
+.body-push-toright {
+	left: 260px;
+    /* display: none; */
+    position: relative;
+    overflow: hidden;
+}
+.body-push-toright .menu-overlay{
+	position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    width: 100%;
+    height: 100%;	
+}
+
+.body-push-toleft {
+	left: 200px;
+}
+
+.dpmenu,
+.body-push {
+	-webkit-transition: all .3s ease;
+	   -moz-transition: all .3s ease;
+		-ms-transition: all .3s ease;
+		 -o-transition: all .3s ease;
+			transition: all .3s ease;
+}
+
+#dpmenuToggle {
+	position: absolute;
+	top: 20px;
+	left: 10px;
+	z-index: 11;
+	display: block;
+	text-align: center;
+	font-size: 12px;
+	color: #ffffff;
+	/*width: 40px;
+	height: 40px;
+	line-height: 40px;*/
+	width: 28px;
+    height: 28px;
+	line-height: 25px;
+    border: 2px solid #fff;
+	border-radius: 50%;
+	
+	
+	cursor: pointer;
+	
+}
+
+#dpmenuToggle:hover {
+	color: #ffffff;
+	background: rgba(0,0,0,0.2);
+	-webkit-transition: all .1s ease-in-out;
+	   -moz-transition: all .1s ease-in-out;
+		-ms-transition: all .1s ease-in-out;
+		 -o-transition: all .1s ease-in-out;
+			transition: all .1s ease-in-out;
+}
+.toolbar-drawer #dpmenuToggle {
+    top: 85px;
+}

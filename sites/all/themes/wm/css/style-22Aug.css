@@ -1,0 +1,168 @@
+@font-face {font-family: 'RobotoBold_0'; src: url('../fonts/RobotoBold_0.eot'); src: url('../fonts/RobotoBold_0.eot?#iefix') format('embedded-opentype'),  url('../fonts/RobotoBold_0.woff') format('woff'),  url('../fonts/RobotoBold_0.ttf') format('truetype'),  url('../fonts/RobotoBold_0.svg#proxima_nova_rgregular') format('svg'); font-weight: normal; font-style: normal;}
+
+/*----Navbar----*/
+body.navbar-is-fixed-top {
+    padding-top: 50px !important;
+}
+.front .col-sm-12 {padding: 0;}
+.dropdown-menu > .active > a{
+    background-color: transparent;
+	color:#333;
+}
+ .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+    background-color: #f5f5f5;
+    color: #ccc;
+    outline: 0 none;
+    text-decoration: none;
+	}
+nav{font-family:'RobotoBold_0'}
+nav.navbar, nav.navbar.navbar-default{background-color:#f2f2f2; border:none; border-radius:0; margin-bottom:0;padding:0;}
+.call{padding:15px; color:#808080}
+.icons, .newsletter{padding:15px 0}
+.icons i{margin:0 5px}
+.icons a, .newsletter a{color:#808080; text-decoration:none}
+.call:hover, .icons a:hover, .newsletter a:hover{color:#333}
+
+/*----logo----*/
+.logo img{width: 138px;}
+
+/*----Home banner----*/
+.front .carousel-control.left {
+ background: transparent!important;
+}
+.front .carousel-control.right{
+ background: transparent!important;
+}
+.front .carousel-control{opacity:1; background-image:none!important; width:10%; top:50%; font-size:50px}
+ 
+/*----Header Search-----*/
+.navbar-right{font-family:'RobotoBold_0'}
+.navbar #block-search-form {float: left;margin: 5px 0 0px 0px;}
+
+/*----Front page-----*/
+.front  .main-container.container{width:100%;padding:0;}
+
+.front  .page-header{display:none;}
+/*---- Container Heading Start ----*/
+.container-heading{border-top:1px solid #eee; position:relative; text-align:center; margin:30px 0 50px}
+.container-heading span{position:absolute; top:-15px; margin:0 auto; left:0; right:0; padding:0; background:#fff; width:20%; font-size:20px; text-transform:uppercase; font-family: 'Roboto_Light_0';}
+/*---- Container Heading End ----*/
+
+.carousel-inner .item img, .carousel-inner .item a img{width:100%!important}
+
+/*---- Featured Trips ----*/
+
+.view-featured-trips .carousel-caption{top:0; text-align:left; left:5%; padding:10px; max-width:300px;}
+.view-featured-trips .carousel-caption h3{font-size:15px; font-family:'RobotoBold_0'; padding:0; margin:0}
+.view-featured-trips .carousel-caption p{font-size:13px;margin:5px 0 0 0}
+.view-featured-trips .carousel-caption img{position:absolute; top:10px; right:10px}
+.view-featured-trips .view-footer  div{padding:0 0 20px 0;}
+.view-featured-trips .trip-box{padding:0 0 20px 0;}
+.view-featured-trips .view-content{margin:0 auto;width:970px;}
+
+
+
+.autoplay .slick-list.draggable{width:94%; left:3%}
+
+/* ----Testimonials---- */
+.testimonials{margin-bottom:10px}
+.testimonials .avatar{width:100px; height:100px; overflow:hidden; border-radius:50px; margin:0 auto 10px; border:1px solid #ccc;}
+.testimonials .message{font-size:15px; font-family:'RobotoBold_0'; color:#666}
+.testimonials .name{font-size:14px; color:#666; margin:3px 0 10px}
+.testimonials .detail{font-size:14px; color:#999; margin-bottom:10px; font-style:italic}
+.testimonials a{font-size:14px; color:#999; font-style:italic}
+
+.testi-logo{background:#e6e6e6; box-shadow:none; border-radius:none; }
+
+/* ---- Listing ---- */
+/*.content{margin:30px auto 0 auto}*/
+.listing{position:relative; margin-bottom:30px; max-width: 800px;}
+.listing .name{position:absolute; top:10px; left:10px; color:#fff}
+.listing .name p{margin:0; padding:0}
+.listing .name strong{font-size:14px; font-family:'RobotoBold_0'}
+.listing .level{position:absolute; bottom:0; left:0; color:#fff; background:rgba(0, 0, 0, 0.4); padding:5px 15px; width:100%; font-style:italic; line-height:27px}
+.listing .level .price{font-style:normal}
+.listing .field,.listing .field-item{display:inline-block;}
+.listing .field-name-field-trip-landing-page-image img{width:100%;min-height:100px;}
+.sprite{background:url(../images/icon.png) no-repeat; width:27px; height:27px; display:inline-block; background-size:100%; margin-right:6px}
+
+/* ---- our Team ---- */
+.view-our-team .user-info img{float:left;padding-right:15px;padding-bootom:10px;}
+.view-our-team .user-info .name{font-weight:bold;}
+
+/* ---- Detail Page Trip ---- */
+.node-type-trips h1{display:none;}
+.trip-detail{position:relative; margin-bottom:30px;}
+.trip-detail img{width:100%;height:auto;}
+.trip-detail .name{position:absolute; top:10px; left:20%; color:#fff}
+.trip-detail .level{padding-bottom:20px}
+.trip-detail .level .field-label{width:150px;}
+.trip-detail .level .field-item{display:inline-block;padding-left:10px;}
+.panel-title > a {display:block;}
+.tgf-carousel-container a.tgf-prev-button{bottom: 90px;left: 50px;}
+.tgf-carousel-container a.tgf-next-button{bottom: 90px;right: 50px;}
+.tgf-carousel-container {    background: transparent;	}
+.tgf-slides img {
+    border-radius: 0px;
+}
+a.tgf-next-button, a.tgf-prev-button, a.tgf-pag-next-button, a.tgf-pag-prev-button {
+    background-image: url("../images/btns.png");
+   }
+.btn-booknow {
+    background-color: #000;
+    font-weight:bold;
+	margin-left: -10px;
+    padding: 7px 15px;
+	color:#fff;
+}
+/* Sidebar Facetapi */
+.block.facetapi-collapsible h2.block-title {
+    background-color: #f5f5f5;
+	background: #f5f5f5 url(../images/expand.png) no-repeat right;
+    cursor: pointer;
+	background-position: right 5px center;
+    padding: 5px;
+}
+.block.facetapi-collapsible.expanded h2.block-title {
+    background-color: #f5f5f5;
+	background: #f5f5f5 url(../images/minus.png) no-repeat right;
+    cursor: pointer;
+	background-position: right 5px center;
+    padding: 5px;
+}
+/* Footer */
+.footer {
+	border-top: none;
+    margin-bottom: 0px;
+	margin-top: 0;
+	padding-bottom: 5px;
+    overflow: hidden;	
+}
+.footer .region-footer{
+ border-bottom: 1px solid #eee;
+}
+.footer #block-block-1{
+ border-bottom: 1px solid #eee;
+ padding-bottom: 20px;
+}
+.footer .banking-logos{padding-top:20px;}
+.footer .footer-links  a{font-size:14px; color:#666;}
+.footer .footer-links  li{list-style:none!important;}
+.footer .footer-links li strong {text-transform: uppercase;}
+.foot-icons{float:right; padding-top:5px}
+.foot-icons a, .foot-icons a:hover{color:#666; text-decoration:none}
+.foot-icons a i{margin-left:20px}
+.foot-icons a i:before{font-size:30px}
+.copyright{font-size:12px; margin-top:20px; border-top:1px solid #eee; padding-top:10px}
+.page-blog ul.list-inline {clear:both}
+.footer ul.footer-links {border-right:1px solid #eee;min-height: 260px;}
+.footer ul.footer-links:last-child {border-right:none;}
+.page-blog .field-name-body div{width:100%!important;}
+.page-blog .field-name-body em{clear:both;}
+.page-blog .field-name-body img{width:100%!important;}
+
+@media (max-width:767px) {
+.icons,.call{padding:0 15px 0 0;float:left}
+.footer ul.footer-links {border-bottom:1px solid #eee;padding-bottom: 10px;border-right:none;min-height: auto;}
+.footer ul.footer-links:last {border-bottom:none;}
+}

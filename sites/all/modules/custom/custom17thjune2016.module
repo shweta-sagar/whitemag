@@ -1,0 +1,117 @@
+<?php
+
+/**
+ * @file
+ * Module file for WM Custom module.
+ *
+ */
+
+/**
+ * Implementation of hook_webform_select_options_info().
+ * See webform/webform_hooks.php for further information on this hook in the Webform API.
+ */
+function custom_webform_select_options_info() {
+  $items = array();
+    $items['node_titles'] = array(
+      'title' => t('Trip titles'),
+      'options callback' => 'custom_webform_pre_build_list_trip_titles'
+    );
+  return $items;
+}
+/**
+ * The following piece of code is based on the trips in WM.
+ *
+ */ 
+function custom_webform_pre_build_list_trip_titles() {
+  $options = array();
+  $result = db_query("SELECT nid, title FROM {node} where status=1 and type=:type ORDER BY title", array(':type' => 'trips' ));
+  foreach ($result as $row) {
+    $options[$row->nid] = $row->title;
+  }
+  return $options;
+  
+}
+
+
+function custom_block_info() {
+  $blocks['search-box-hide'] = array(
+    'info' => t('Show Hide Search Box'), 
+  );
+
+ $blocks['search-box'] = array(
+    'info' => t('Search Box'), 
+  );
+  return $blocks;
+}
+
+
+function custom_block_view($delta='') {
+  $block = array();
+  switch ($delta) {
+    case 'search-box-hide':
+      $block['subject'] = '';
+      $block['content'] = '<form action="/trips" id="search-fixed-top">
+							<div class="search_trip_box hide_fare_box">
+							<div class="white-wrapper">
+							<div class="search_trip_bar">
+							<div class="col-md-5 noP">
+							<div class="search_trip_input "><input name="title" placeholder="Search scheduled trips by WM e.g. Everest Base Camp" type="text" /><button class="trip_search"><i class="icon-caret-down"></i></button>
+							<div class="clearfix"></div>
+							</div>
+							</div>
+							<div class="col-md-4 noP">
+							<div class="trip_radio_pos">
+							<div class="search_trip_radio hide_trip">
+							<div class="checkboxFour"><input checked="checked" class="trip" name="rtrip" type="radio" value="1" /><span>Scheduled departures</span></div>
+							<div class="checkboxFour1"><input class="trip" name="rtrip" type="radio" value="2" /><span>All trips</span></div>
+							</div>
+							</div>
+							</div>
+							<div class="col-md-3 noP">
+							<div class="search_trip_btn"><button type="submit">SEARCH TRIP <i class="icon-search"></i></button></div>
+							</div>
+							<div class="clearfix"></div>
+							</div>
+							</div>
+							</div>
+							</form>';
+      break;
+
+    case 'search-box':
+      $block['subject'] = '';
+      $block['content'] = '<div class="home_searchbar">
+							<div class="arrow">
+							<p class="home_srtxt">or Find your adventure</p>
+							<p class="arrow_one">&nbsp;</p>
+							</div>
+							<form action="/trips" id="search-fixed">
+							<div class="search_trip_box">
+							<div class="white-wrapper-search">
+							<div class="search_trip_bar">
+							<div class="col-md-5 noP">
+							<div class="search_trip_input "><input name="title" placeholder="Search scheduled trips by WM e.g. Everest Base Camp" type="text" /><button class="trip_search"><i class="icon-caret-down"></i></button>
+							<div class="clearfix"></div>
+							</div>
+							</div>
+							<div class="col-md-4 noP">
+							<div class="trip_radio_pos">
+							<div class="search_trip_radio hide_trip">
+							<div class="checkboxFour"><input checked="checked" class="trip" name="rtrip" type="radio" value="1" /><span>Scheduled departures</span></div>
+							<div class="checkboxFour1"><input class="trip" name="rtrip" type="radio" value="2" /><span>All trips</span></div>
+							</div>
+							</div>
+							</div>
+							<div class="col-md-3 noP">
+							<div class="search_trip_btn"><button type="submit">SEARCH TRIP <i class="icon-search"></i></button></div>
+							</div>
+							<div class="clearfix"></div>
+							</div>
+							</div>
+							</div>
+							</form>
+							</div>';
+      break;
+
+  }
+  return $block;
+}

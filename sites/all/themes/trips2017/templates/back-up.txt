@@ -1,0 +1,23 @@
+<?php
+$collections = array();
+foreach ($items as $k){ die;
+	foreach ($k['entity']['field_collection_item'] as $id => $field_collection){
+	
+		$field_collection_item = field_collection_item_load($id);
+		$item_wrapper = entity_metadata_wrapper('field_collection_item', $field_collection_item);
+		$field_day= $item_wrapper->field_day->value(); 			// an array day data
+		$field_title= $item_wrapper->field_title->value(); 			// title
+		$field_description	= $item_wrapper->field_description->value(); 	// description
+$collection = array(
+'day'	=>	$field_day,
+'title'	=>	$field_title,
+'description'	=>	$field_description
+);
+		$collections[] = $collection;	
+print_r($collection);
+	}
+	
+}
+?>
+
+</div>

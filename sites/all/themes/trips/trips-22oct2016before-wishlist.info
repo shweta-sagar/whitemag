@@ -1,0 +1,55 @@
+name = Trips
+description = Custom WhiteMagic.
+core = 7.x
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Stylesheets
+;;;;;;;;;;;;;;;;;;;;;
+
+stylesheets[all][] = css/bootstrap.min.css
+stylesheets[all][] = css/styles.css
+stylesheets[all][] = css/effects.css
+stylesheets[all][] = css/main.css
+stylesheets[all][] = css/font-awesome.min.css
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Regions
+;;;;;;;;;;;;;;;;;;;;;
+
+regions[navigation]     	= 'Navigation'
+regions[contact_links]      = 'Contact Links'
+regions[header]         	= 'Top Bar'
+regions[blog_header]        = 'Blog Header'
+regions[banner] 			= 'Banner'
+regions[blog_menu] 			= 'Blog Menu'
+
+regions[after_banner] 		= 'Search Bar'
+regions[before_content] 	= 'Before content'
+regions[content]        	= 'Content'
+regions[after_content] 	 	= 'After content'
+
+regions[sidebar_first]  	= 'Primary'
+regions[sidebar_second] 	= 'Secondary'
+
+regions[before_footer]    	= 'Before Footer'
+regions[blog_footer]    	= 'Blog Footer'
+
+regions[footer_left]    	= 'Footer Left'
+regions[footer_social]   	= 'Footer Social'
+regions[footer_newsletter] 	= 'Newsletter'
+regions[footer_brands] 		= 'Brands'
+regions[after_footer]    	= 'After Footer'
+
+
+
+; ;;;;;;;;;;;;;;;;;;;;;
+; ;; Scripts
+; ;;;;;;;;;;;;;;;;;;;;;
+; 
+scripts[] = 'js/jquery.js'
+scripts[] = 'js/bootstrap.min.js'
+scripts[] = 'js/main.js'
+scripts[] = 'js/viewportchecker.js'
+scripts[] = 'js/modernizr.js'
+scripts[] = 'js/common.js'
+scripts[] = 'js/document_functions.js'
