@@ -853,8 +853,9 @@ b.circle_heart{right:10px; left:auto;top:10px; border:0;border-radius:0;backgrou
 .trip_box_slide {padding:0!important}
 ul.trip_heart_ul li:last-child .wht_mgc_dd div.double_arrow p.arrow_two{top:2px!important;}
 ul.trip_heart_ul li:last-child .wht_mgc_dd div.double_arrow p.arrow_one {top: -1px !important;}
-.filter_wm #filters{background: #fff;border:1px solid #afafaf;margin-right:20px; position: fixed; width: 318px;}
-.filter_wm .panel-group{margin-bottom:0;}
+.filter_wm #filters{background: #fff;border:1px solid #afafaf;margin-right:20px; position: fixed; width: 100%; z-index: 1; max-width: 320px;}
+.
+ .panel-group{margin-bottom:0;}
 .filter_wm .form-checkboxes label.option{vertical-align:2px;margin-left:3px;}
 .filter_wm h2{margin:0;font-size:1.7rem;font-weight:bold;text-transform:uppercase;padding:10px; border-bottom:1px solid #afafaf}
 a.btn-customise{color:#333;border-radius:0;text-align:left;background:#efefef;margin:10px;width:92%;}
@@ -967,7 +968,7 @@ ul.trip_heart_ul li:nth-child(3n){ width:35% !important;}
 p.book_btn{ margin:0px auto;}
 /*/.ever_part{ bottom:25px;}*/
 .quick_wrap{ width:100%; padding:20px 30px; margin-bottom:30px; height:100% !important;}
-.white-wrapper{ width:90% !important;}
+.white-wrapper{ width:90% !important; z-index: -1;}
 .search_trip_box{ margin-top:0px;}
 .discover_cal{ display:none;}
 .discover_box{ text-align:center;}
@@ -1376,3 +1377,8 @@ ul.radio input[type=radio]:checked ~ label{
 .btnBT{background:#aeaeae;}
 .back-to-top span{color:#fff}
 .flag-wrapper.flag-bookmarks{float:right;}
+
+.view-wm-upcoming-trips .view-filters {width: 25%; float: left;}
+.col-md-3.filter_wm {width: 100%;}
+
+

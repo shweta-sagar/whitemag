@@ -49,8 +49,10 @@ regions[after_footer]    	= 'After Footer'
 ; 
 scripts[] = 'js/jquery.js'
 scripts[] = 'js/bootstrap.min.js'
+scripts[] = 'js/jquery.sticky-kit.min.js'
 scripts[] = 'js/main.js'
 scripts[] = 'js/viewportchecker.js'
 scripts[] = 'js/modernizr.js'
 scripts[] = 'js/common.js'
 scripts[] = 'js/document_functions.js'
+
