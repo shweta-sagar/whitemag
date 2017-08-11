@@ -87,7 +87,7 @@
 // die;
  ?>
 <?php
-$background_style=""; 
+$background_style="";
 if(!empty($node->field_trip_main_image['und']['0']['uri']))
 {
 $background_url = file_create_url($node->field_trip_main_image['und']['0']['uri']);
@@ -106,7 +106,7 @@ $background_style="style=\"background:url('". $background_url."') top center no-
 
 <div class="white-wrapper">
 <div class="trekking_styles col-xs-12 noP">
-<!--<p><?php 
+<!--<p><?php
 $output = render($content['field_trip_type']);
 if (strpos($output, ',') !== FALSE) {
 print end(explode(',', $output));
@@ -114,25 +114,25 @@ print end(explode(',', $output));
 print render($content['field_trip_type']);
 }
 
-$trip_amt = str_replace(",", "", $node->field_trip_price['und']['0']['value']); 	
-$trip_amt_us = str_replace(",", "", $node->field_trip_price_us['und']['0']['value']); 	
-$booking_amt = str_replace(",", "", $node->field_booking_amount_indian['und']['0']['value']); 
-$booking_amt_us = str_replace(",", "", $node->field_booking_amount_us['und']['0']['value']); 		
+$trip_amt = str_replace(",", "", $node->field_trip_price['und']['0']['value']);
+$trip_amt_us = str_replace(",", "", $node->field_trip_price_us['und']['0']['value']);
+$booking_amt = str_replace(",", "", $node->field_booking_amount_indian['und']['0']['value']);
+$booking_amt_us = str_replace(",", "", $node->field_booking_amount_us['und']['0']['value']);
 $pending_amt=$node->field_trip_price['und']['0']['value']-$booking_amt;
 $trip_booking=false;
-$trip_cost='<ul class="radio">'; 
+$trip_cost='<ul class="radio">';
 if($trip_amt){
-$trip_cost.='<li><input type="radio" name="currency" value="INR" id="currencyINR"><label for="currencyINR"><span><i class="icon-rupee"></i></span>'.$node->field_trip_price['und']['0']['value'].'</label><div class="check"></div></li>';	
+$trip_cost.='<li><input type="radio" name="currency" value="INR" id="currencyINR"><label for="currencyINR"><span><i class="icon-rupee"></i></span>'.$node->field_trip_price['und']['0']['value'].'</label><div class="check"></div></li>';
 }
 if($trip_amt_us){
-$trip_cost.='<li><input type="radio" name="currency" value="USD" id="currencyUSD"><label for="currencyUSD"><span><i class="icon-dollar"></i></span>'.$node->field_trip_price_us['und']['0']['value'].'</label><div class="check"></div></li>';	
-}	
-$trip_cost.='</ul>'; 
+$trip_cost.='<li><input type="radio" name="currency" value="USD" id="currencyUSD"><label for="currencyUSD"><span><i class="icon-dollar"></i></span>'.$node->field_trip_price_us['und']['0']['value'].'</label><div class="check"></div></li>';
+}
+$trip_cost.='</ul>';
 foreach ($content['field_trip_date']['#items'] as $key=> $item) {
 	if(strtotime($item['value'])> strtotime(date('Y-m-d') )){
 	$trip_booking=true;
 	break;
-	}	
+	}
 }
 ?>
 ?></p>-->
@@ -153,8 +153,8 @@ foreach ($content['field_trip_date']['#items'] as $key=> $item) {
 	  <div class="clearfix"></div>
   </div>
   <?php if($node->field_trip_leader['und']['0']['target_id']){
-	print (views_embed_view('trip_leader', 'block',array($node->field_trip_leader['und']['0']['target_id'])));  
-	} 
+	print (views_embed_view('trip_leader', 'block',array($node->field_trip_leader['und']['0']['target_id'])));
+	}
   ?>
 <!--<div class="ever_part">
 <div class="white-wrapper">
@@ -179,7 +179,7 @@ foreach ($content['field_trip_date']['#items'] as $key=> $item) {
 	 <?php if($trip_booking){ ?>
 	        <div class="col-xs-12 col-sm-7 col-md-9 noP">
 			<ul class="radio">
-			<?php 
+			<?php
 			foreach ($content['field_trip_date']['#items'] as $key=> $item) {
 			  if(strtotime($item['value'])> strtotime(date('Y-m-d') )){
 			?>
@@ -191,13 +191,13 @@ foreach ($content['field_trip_date']['#items'] as $key=> $item) {
 					  <input type="hidden" name="select_trip" value="<?php print $node->nid;?>">
 					  <input type="hidden" name="trip_amount" value="<?php print $node->field_trip_price['und']['0']['value'];?>">
 			<?php if((strtotime($item['value'])> strtotime("+1 month",strtotime(date('Y-m-d') )))&& ($booking_amt >0)){?>
-					  <input type="hidden" name="booking_amount" value="<?php print $booking_amt;?>">					 
-					 <!--<p class="book_btn even"> 
-					 
+					  <input type="hidden" name="booking_amount" value="<?php print $booking_amt;?>">
+					 <!--<p class="book_btn even">
+
 					 <input type="Submit" name="advanced" value="BOOK NOW"></p>-->
-			<?php }?>	
+			<?php }?>
 			</form> <div class="check"></div></li>
-			<?php } 
+			<?php }
 			}?>
 			</ul>
 			</div>
@@ -211,15 +211,15 @@ foreach ($content['field_trip_date']['#items'] as $key=> $item) {
         		<input type="Submit" id="submitButton1" class="book_btn btn btn-primary btn-md pull-right" value="Send Enquiry">
 				</div>
 		   <?php } ?>
-				 
+
 			<?php if(!$trip_booking){ ?>
 					<form method="post" action="/trip-order-form">
 					  <input type="hidden" name="trip_type" value="1">
   					  <input type="hidden" name="select_trip" value="<?php print $node->nid;?>">
 					  <input type="hidden" name="trip_amount" value="<?php print $node->field_trip_price['und']['0']['value'];?>">
 					 <p class="book_btn"><input type="Submit" name="submit" class="book_btn btn btn-primary btn-md"  value="Send Enquiry"></p>
-					</form>	
-		   	<?php } ?>	
+					</form>
+		   	<?php } ?>
 		 <!--Form end-->
 
         </div>
@@ -248,6 +248,14 @@ foreach ($content['field_trip_date']['#items'] as $key=> $item) {
                     <a href="#photo">photo gallery</a>
                     <hr class="nav-under">
                   </li>
+                  <li>
+                    <a href="#">Map</a>
+                    <hr class="nav-under">
+                  </li>
+                  <li>
+                    <a href="#">Reviews</a>
+                    <hr class="nav-under">
+                  </li>
                   <!--<li >
                     <a href="#trip" aria-controls="trip" role="tab" data-toggle="tab">trip stories</a>
                      <hr class="nav-under">
@@ -257,7 +265,7 @@ foreach ($content['field_trip_date']['#items'] as $key=> $item) {
               </div>
             </div>
 			<!--tabs-->
- </div> 			
+ </div>
 			<!-- Tab panes -->
           <div class="row">
             <div class="tab-content">
@@ -281,7 +289,7 @@ foreach ($content['field_trip_date']['#items'] as $key=> $item) {
                   <div class="white-wrapper inclusion-exclusion">
                     <h3>Cost details</h3>
                     <h4><?php if($trip_cost){
-								print $trip_cost; 
+								print $trip_cost;
 								}else{
 								print "On Request";
 							}?>
@@ -322,16 +330,16 @@ foreach ($content['field_trip_date']['#items'] as $key=> $item) {
                 </div>
               </div>
             </div>
-          					  		  
+
 		 </div>
-		  <!--Tab-->	
+		  <!--Tab-->
 <div class="row">
    <div class="bookingForm col-xs-12" style="background-color:#efefef!important">
 	 <div class="white-wrapper">
 	 <?php if($trip_booking){ ?>
 	        <div class="col-xs-12 col-sm-7 col-md-9 noP">
 			<ul class="radio">
-			<?php 
+			<?php
 			foreach ($content['field_trip_date']['#items'] as $key=> $item) {
 			  if(strtotime($item['value'])> strtotime(date('Y-m-d') )){
 			?>
@@ -343,13 +351,13 @@ foreach ($content['field_trip_date']['#items'] as $key=> $item) {
 					  <input type="hidden" name="select_trip" value="<?php print $node->nid;?>">
 					  <input type="hidden" name="trip_amount" value="<?php print $node->field_trip_price['und']['0']['value'];?>">
 			<?php if((strtotime($item['value'])> strtotime("+1 month",strtotime(date('Y-m-d') )))&& ($booking_amt >0)){?>
-					  <input type="hidden" name="booking_amount" value="<?php print $booking_amt;?>">					 
-					 <!--<p class="book_btn even"> 
-					 
+					  <input type="hidden" name="booking_amount" value="<?php print $booking_amt;?>">
+					 <!--<p class="book_btn even">
+
 					 <input type="Submit" name="advanced" value="BOOK NOW"></p>-->
-			<?php }?>	
+			<?php }?>
 			</form> <div class="check"></div></li>
-			<?php } 
+			<?php }
 			}?>
 			</ul>
 			</div>
@@ -363,15 +371,15 @@ foreach ($content['field_trip_date']['#items'] as $key=> $item) {
         		<input type="Submit" id="submitButton" class="book_btn btn btn-primary btn-md pull-right" value="Send Enquiry">
 				</div>
 		   <?php } ?>
-				 
+
 			<?php if(!$trip_booking){ ?>
 					<form method="post" action="/trip-order-form">
 					  <input type="hidden" name="trip_type" value="1">
   					  <input type="hidden" name="select_trip" value="<?php print $node->nid;?>">
 					  <input type="hidden" name="trip_amount" value="<?php print $node->field_trip_price['und']['0']['value'];?>">
 					 <p class="book_btn"><input type="Submit" name="submit" class="book_btn btn btn-primary btn-md"  value="Send Enquiry"></p>
-					</form>	
-		   	<?php } ?>	
+					</form>
+		   	<?php } ?>
         </div>
-    </div>			
-</div>		  
+    </div>
+</div>

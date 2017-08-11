@@ -6,11 +6,35 @@
 				$('#theMenu').toggleClass('dpmenu-open');
 			});
 
-			$("#view-filters").stick_in_parent();
+			// $(".views-exposed-form-wm-upcoming-trips-page-2").stick_in_parent();
 
 
 })(jQuery);
-
-$( document ).ready(function() {
-    $("#view-filters, #trip_box_slide").stick_in_parent();
+// fixing .panel-group div on scrolling
+$(document).ready(function(){
+	$(document).scroll(function(){
+		if(($(document).scrollTop() > 95) && ($(document).scrollTop() < 16500 ))
+ 			$('.panel-group').css("position", "fixed");
+ 		else {
+ 			$('.panel-group').css("position", "relative");
+ 		}
+	});
 });
+
+// jQuery(document).ready(function(){
+// 	jQuery(document).scroll(function(){
+// 	var headerHeight = jQuery('header').height();	// gives 43
+// 	var finalHeader = headerHeight + 10;
+// 	var footerHeight = jQuery('footer').height();	// gives 356
+// 	var finalFooter = footerHeight + 130;
+//   // var totalHeight = finalHeader + finalFooter;
+// 	// console.log(totalHeight);
+// 	var documentHeight = jQuery(document).height();
+// 	var contentHeight = documentHeight - totalHeight;
+// 	if((jQuery(document).scrollTop() > finalHeader) && (jQuery(document).scrollTop() < finalFooter ))
+// 		jQuery('.panel-group').css("position", "fixed");
+// 	else {
+// 		jQuery('.panel-group').css("position", "relative");
+// 	}
+// 	});
+// });

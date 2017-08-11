@@ -81,7 +81,7 @@
  */
 ?>
 <?php
-$background_style=""; 
+$background_style="";
 if(!empty($node->field_trip_main_image['und']['0']['uri']))
 {
 $background_url = file_create_url($node->field_trip_main_image['und']['0']['uri']);
@@ -94,7 +94,7 @@ $background_style="style=\"background:url('". $background_url."') top center no-
 <img src="<?php print $background_url; ?>" class="img-responsive" style="width:100%">
 <div class="white-wrapper">
 <div class="trekking_styles">
-<!--<p><?php 
+<!--<p><?php
 $output = render($content['field_trip_type']);
 if (strpos($output, ',') !== FALSE) {
 print end(explode(',', $output));
@@ -104,28 +104,28 @@ print render($content['field_trip_type']);
 
 
 
-$trip_amt = str_replace(",", "", $node->field_trip_price['und']['0']['value']); 	
-$trip_amt_us = str_replace(",", "", $node->field_trip_price_us['und']['0']['value']); 	
-$booking_amt = str_replace(",", "", $node->field_booking_amount_indian['und']['0']['value']); 
-$booking_amt_us = str_replace(",", "", $node->field_booking_amount_us['und']['0']['value']); 		
+$trip_amt = str_replace(",", "", $node->field_trip_price['und']['0']['value']);
+$trip_amt_us = str_replace(",", "", $node->field_trip_price_us['und']['0']['value']);
+$booking_amt = str_replace(",", "", $node->field_booking_amount_indian['und']['0']['value']);
+$booking_amt_us = str_replace(",", "", $node->field_booking_amount_us['und']['0']['value']);
 $pending_amt=$node->field_trip_price['und']['0']['value']-$booking_amt;
 $trip_booking=false;
-$trip_cost=""; 
+$trip_cost="";
 if($trip_amt){
-$trip_cost='<span><i class="icon-rupee"></i></span>'.$node->field_booking_amount['und']['0']['value'];	
+$trip_cost='<span><i class="icon-rupee"></i></span>'.$node->field_booking_amount['und']['0']['value'];
 }
 if($trip_amt_us){
-$trip_cost.='/<span><i class="icon-dollar"></i></span>'.$node->field_booking_amount_us['und']['0']['value'];	
+$trip_cost.='/<span><i class="icon-dollar"></i></span>'.$node->field_booking_amount_us['und']['0']['value'];
 }
 if(!$$trip_amt && $$trip_amt_us)
 {
-	
-}	
+
+}
 foreach ($content['field_trip_date']['#items'] as $key=> $item) {
 	if(strtotime($item['value'])> strtotime(date('Y-m-d') )){
 	$trip_booking=true;
 	break;
-	}	
+	}
 }
 ?>
 ?></p>-->
@@ -146,7 +146,7 @@ foreach ($content['field_trip_date']['#items'] as $key=> $item) {
 	  <div class="clearfix"></div>
   </div>
   <div class="col-xs-12 col-sm-4 col-md-3 noP bodr-lft">
-	<hr class="visible-xs"/>  
+	<hr class="visible-xs"/>
 	<div class="trip-leader"><span><strong>Avilash Bisht</strong><br/>Trip leader</span>
 	<span class="trip_user">
 	<img src="images/user.jpg" >
@@ -184,7 +184,7 @@ foreach ($content['field_trip_date']['#items'] as $key=> $item) {
 				   <span class="price">14000/$300</span>
 				   </div>
 				   <div class="col-xs-12 col-sm-2  noP">
-					  <input class="book_btn btn btn-primary btn-md pull-right" type="submit" value="Send Enquiry">					 
+					  <input class="book_btn btn btn-primary btn-md pull-right" type="submit" value="Send Enquiry">
 				   </div>
 				   </form>
               </div>
@@ -225,7 +225,7 @@ foreach ($content['field_trip_date']['#items'] as $key=> $item) {
               </div>
             </div>
 			<!--tabs-->
- </div> 			
+ </div>
 			<!-- Tab panes -->
           <div class="row">
             <div class="tab-content">
@@ -285,25 +285,25 @@ foreach ($content['field_trip_date']['#items'] as $key=> $item) {
                 </div>
               </div>
             </div>
-          					  		  
+
 		 </div>
-		  <!--Tab-->	
+		  <!--Tab-->
 <div class="row">
    <div class="bookingForm col-xs-12" style="background-color:#efefef!important">
 	 <div class="white-wrapper">
 	  <div class="col-xs-12 col-sm-8 noP">
-		<?php 
+		<?php
 			$trip_booking=false;
-			$node->field_trip_price['und']['0']['value'] = str_replace(",", "", $node->field_trip_price['und']['0']['value']); 	
-			$booking_amt = str_replace(",", "", $node->field_booking_amount_indian['und']['0']['value']); 	
+			$node->field_trip_price['und']['0']['value'] = str_replace(",", "", $node->field_trip_price['und']['0']['value']);
+			$booking_amt = str_replace(",", "", $node->field_booking_amount_indian['und']['0']['value']);
 			$pending_amt=$node->field_trip_price['und']['0']['value']-$booking_amt;
 			?>
 			<ul class="radio">
-			<?php 
+			<?php
 			$trip_booking=false;
 			foreach ($content['field_trip_date']['#items'] as $key=> $item) {
 			  if(strtotime($item['value'])> strtotime(date('Y-m-d') )){
-				$trip_booking=true;	
+				$trip_booking=true;
 			?>
           <li><input type="radio" name="dateKey" value="<?php print $key ?>" id="dateKey<?php print $key ?>"><label for="dateKey<?php print $key ?>"><?php print strip_tags($content['field_trip_date'][$key]['#markup']);?></label>
           		<form method="post" action="/trip-order-form" style="display: inline;" name="formSubmit<?php print $key ?>">
@@ -313,22 +313,22 @@ foreach ($content['field_trip_date']['#items'] as $key=> $item) {
 					  <input type="hidden" name="select_trip" value="<?php print $node->nid;?>">
 					  <input type="hidden" name="trip_amount" value="<?php print $node->field_trip_price['und']['0']['value'];?>">
 			<?php if((strtotime($item['value'])> strtotime("+1 month",strtotime(date('Y-m-d') )))&& ($booking_amt >0)){?>
-					  <input type="hidden" name="booking_amount" value="<?php print $booking_amt;?>">					 
-					 <!--<p class="book_btn even"> 
-					 
+					  <input type="hidden" name="booking_amount" value="<?php print $booking_amt;?>">
+					 <!--<p class="book_btn even">
+
 					 <input type="Submit" name="advanced" value="BOOK NOW"></p>-->
-			<?php }?>	
+			<?php }?>
 			</form> <div class="check"></div></li>
-			<?php 
-				} 
+			<?php
+				}
 			}?>
 			</ul>
 			</div>
-			<?php 
+			<?php
 			if(!$content['field_trip_price'] && $content['field_trip_price_us']){?>
 			<div class="col-xs-12 col-sm-2 price noP">
 			  <?php if($content['field_trip_price']){?>
-					<span><i class="icon-rupee"></i></span> 
+					<span><i class="icon-rupee"></i></span>
 			  <?php print render($content['field_trip_price']);
 					}
 			   if($content['field_trip_price_us']){?>
@@ -347,8 +347,8 @@ foreach ($content['field_trip_date']['#items'] as $key=> $item) {
   					  <input type="hidden" name="select_trip" value="<?php print $node->nid;?>">
 					  <input type="hidden" name="trip_amount" value="<?php print $node->field_trip_price['und']['0']['value'];?>">
 					 <p class="book_btn"><input type="Submit" name="submit" class="book_btn btn btn-primary btn-md"  value="Send Enquiry"></p>
-					</form>	
-		   	<?php } ?>	
+					</form>
+		   	<?php } ?>
         </div>
-    </div>			
-</div>		  
+    </div>
+</div>

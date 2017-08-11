@@ -82,10 +82,10 @@
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
-	<!-- <div class="trip-detail"> 
+	<!-- <div class="trip-detail">
 		<?php print  render($content['field_main_image']);?>
 		   <div class="name">
-		        <h2><?php print $title; ?></h2> 
+		        <h2><?php print $title; ?></h2>
 		        <?php print render($content['field_body']);?>
 		    </div>
 	</div>

@@ -86,13 +86,13 @@
 				<?php } ?>
 		  </div>
           <!-- SECOND PAGE CONTENT-->
-          
+
 <?php  if($node->type=='trips'){
 			$wrap_class="trips-detial";
 			}else{
-			$wrap_class="white-wrapper";	
-		}         
-?>          
+			$wrap_class="white-wrapper";
+		}
+?>
          <div class="row">
 		 <?php if (!empty($tabs)): ?>
           <?php print render($tabs); ?>
@@ -104,26 +104,26 @@
         <h1 class="page-header"><?php print $title; ?></h1>
       <?php endif; ?>
       <?php print render($title_suffix); ?>
-      <?php print $messages; ?>   
+      <?php print $messages; ?>
       <?php if (!empty($page['help'])): ?>
         <?php print render($page['help']); ?>
       <?php endif; ?>
       <?php if (!empty($action_links)): ?>
         <ul class="action-links"><?php print render($action_links); ?></ul>
       <?php endif; ?>
-		  
+
 			  <?php if (!empty($page['before_content'])): ?>
 					<?php print render($page['before_content']); ?>
-				<div class="clearfix"></div>         
+				<div class="clearfix"></div>
 			  <?php endif; ?>
-			 
+
 			  <?php if (!empty($page['content'])): ?>
 					<?php print render($page['content']); ?>
-  			  <div class="clearfix"></div>         
+  			  <div class="clearfix"></div>
 			  <?php endif; ?>
               <?php if (!empty($page['after_content'])): ?>
 					<?php print render($page['after_content']); ?>
-			  <div class="clearfix"></div>         
+			  <div class="clearfix"></div>
 			  <?php endif; ?>
               </div>
           </div>
@@ -166,7 +166,7 @@
 		   <?php } ?>
           </div>
           <!--footer-->
-         
+
          <a id="bodyscroll"></a>
   </div>
- </div> 
+ </div>

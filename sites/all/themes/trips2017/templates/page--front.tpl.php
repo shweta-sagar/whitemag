@@ -78,16 +78,21 @@ if(!$imgId){$imgId="";}
 
       <div class="wm_over">
       <!-- Push Wrapper -->
-             
+
         <div class="container-fluid">
           <div class="row">
             <?php include "site-header.tpl.php"; ?>
-            </div>	   
-          
+            </div>
+
           <!-- SECOND PAGE CONTENT-->
 
-          
+
          <div class="row">
+           <?php if ($page['banner']): ?>
+             <div id="banner" class="banner"><div class="section">
+               <?php print render($page['banner']); ?>
+             </div></div> <!-- /.section, /#sidebar-first -->
+           <?php endif; ?>
 		<!-- <img src="<?php print base_path() . path_to_theme()?>/images/home_bg<?php print $imgId ?>.jpg" class="img-responsive"> -->
             <div class="white-wrapper">
            	  <?php if (!empty($page['before_content'])): ?>
@@ -97,11 +102,11 @@ if(!$imgId){$imgId="";}
 				<?php if (!empty($page['content'])): ?>
 					<?php print render($page['content']); ?>
 			  <?php endif; ?>
-			  <div class="clearfix"></div>			  
+			  <div class="clearfix"></div>
               <?php if (!empty($page['after_content'])): ?>
 					<?php print render($page['after_content']); ?>
 			  <?php endif; ?>
-              <div class="clearfix"></div>         
+              <div class="clearfix"></div>
               </div>
           </div>
           <!--footer-->
@@ -126,7 +131,7 @@ if(!$imgId){$imgId="";}
             </footer>
           </div>
           <!--footer-->
-         
+
          <a id="bodyscroll"></a>
       </div>
-    </div> 
+    </div>

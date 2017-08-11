@@ -25,7 +25,7 @@ function custom_webform_select_options_info() {
 /**
  * The following piece of code is based on the trips in WM.
  *
- */ 
+ */
 function custom_webform_pre_build_list_trip_titles() {
   $options = array();
   $result = db_query("SELECT nid, title FROM {node} where status=1 and type=:type ORDER BY title", array(':type' => 'trips' ));
@@ -34,13 +34,13 @@ function custom_webform_pre_build_list_trip_titles() {
   }
   $options[0]="Others-Customised Trip";
   return $options;
-  
+
 }
 
 /**
  * The following piece of code is based on the trips in WM.
  *
- */ 
+ */
 function custom_webform_get_node_title($nid) {
   $title="";
   $result = db_query("SELECT nid, title FROM {node} where type=:type and nid=:nid ORDER BY title", array(':type' => 'trips',':nid'=>$nid ));
@@ -53,7 +53,7 @@ function custom_webform_get_node_title($nid) {
 /**
  * The Webform Deafult values.
  *
- */ 
+ */
 function custom_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'webform_client_form_83' || $form_id == 'webform_client_form_352' ){
 	 // print "<pre>";
@@ -83,8 +83,8 @@ function custom_form_alter(&$form, &$form_state, $form_id) {
 		}
 	if(isset($_POST['trip_currency']))
 	{
-	$form['submitted']['trip_currency']['#default_value'] = $_POST['trip_currency'];	
-	}		
+	$form['submitted']['trip_currency']['#default_value'] = $_POST['trip_currency'];
+	}
 	if(isset($_POST['booking_amount'])){
 	  if(isset($_POST['trip_currency'])&& $_POST['trip_currency']=="USD" ){
 		$form['submitted']['trip_cost']['#default_value'] = $_POST['trip_amount_us'];
@@ -93,7 +93,7 @@ function custom_form_alter(&$form, &$form_state, $form_id) {
 		$form['submitted']['trip_cost']['#default_value'] = $_POST['trip_amount'];
 		$form['submitted']['trip_amount']['#default_value'] = $_POST['booking_amount'];
 		}
-	}		
+	}
 	if(isset($_POST['start_date'])){
 		//print $_POST['start_date'];
 		//$start_date=explode("-",$_POST['start_date']);
@@ -101,17 +101,17 @@ function custom_form_alter(&$form, &$form_state, $form_id) {
 		$form['submitted']['trip_dates_fieldset']['trip_end_date']['#default_value'] = $_POST['end_date'];
 		//$form['submitted']['trip_dates_fieldset']['trip_end_date']['month']['#default_value'] = $end_date[1];
 		//$form['submitted']['trip_dates_fieldset']['trip_end_date']['year']['#default_value'] = $end_date[2];
-		}		
-  } 
+		}
+  }
 }
 
 function custom_block_info() {
   $blocks['search-box-hide'] = array(
-    'info' => t('Show Hide Search Box'), 
+    'info' => t('Show Hide Search Box'),
   );
 
  $blocks['search-box'] = array(
-    'info' => t('Search Box'), 
+    'info' => t('Search Box'),
   );
   return $blocks;
 }
@@ -206,6 +206,37 @@ function custom_block_view($delta='') {
   return $block;
 }
 
+// function custom_query_alter(QueryAlterableInterface $query) {
+//   $query->field = $view->display[field_slider_type_tid][filters]
+// }
+//
+// function custom_views_query_alter(&$views, $query) {
+//   switch ($views->name) {
+//     case 'image_slider':
+//       return image_slider_query_alter($views, $query);
+//       break;
+//
+//     default:
+//       # code...
+//       break;
+//   }
+// }
+//
+// function image_slider_query_alter($views, $query) {
+//   if ($views->current_display == 'landing_block') {
+//     // print '<pre>';
+//     // print_r($views);
+//     // die();
+//     $nid = arg(1);
+//     $node = node_load($nid);
+//     $result = field_get_items('node', $node, 'field_slider_type');
+//     // print '<pre>';
+//     // print_r($result);
+//     // die();
+//     $query->where[1]['conditions'][2]['value'] = $result[0]['tid'];
+//     $query->where[1]['conditions'][2]['operator'] = '=';
+//   }
+// }
 
 function custom_form_views_exposed_form_alter(&$form, $form_state) {
   if( $form['#id'] == 'views-exposed-form-wm-upcoming-trips-page-1') {
@@ -230,3 +261,11 @@ function custom_views_exposed_form_validate(&$form, &$form_state) {
     }
   }
 }
+// //Implementing hook_block_view_alter function
+// function custom_page_alter(&$page) {
+//  print '<pre>';
+//  print_r($page);
+//  die();
+// // //   drupal_add_js('trips2017/main.css');
+// // //   drupal_add_js('trips2017/jquery.sticky-kit.min');
+// }

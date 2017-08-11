@@ -87,7 +87,7 @@
 // die;
  ?>
 <?php
-$background_style=""; 
+$background_style="";
 if(!empty($node->field_trip_main_image['und']['0']['uri']))
 {
 $background_url = file_create_url($node->field_trip_main_image['und']['0']['uri']);
@@ -106,7 +106,7 @@ $background_style="style=\"background:url('". $background_url."') top center no-
 
 <div class="white-wrapper">
 <div class="trekking_styles col-xs-12 noP">
-<!--<p><?php 
+<!--<p><?php
 $output = render($content['field_trip_type']);
 if (strpos($output, ',') !== FALSE) {
 print end(explode(',', $output));
@@ -114,27 +114,27 @@ print end(explode(',', $output));
 print render($content['field_trip_type']);
 }
 
-$trip_amt = str_replace(",", "", $node->field_trip_price['und']['0']['value']); 	
-$trip_amt_us = str_replace(",", "", $node->field_trip_price_us['und']['0']['value']); 	
-$booking_amt = str_replace(",", "", $node->field_booking_amount_indian['und']['0']['value']); 
-$booking_amt_us = str_replace(",", "", $node->field_booking_amount_us['und']['0']['value']); 		
+$trip_amt = str_replace(",", "", $node->field_trip_price['und']['0']['value']);
+$trip_amt_us = str_replace(",", "", $node->field_trip_price_us['und']['0']['value']);
+$booking_amt = str_replace(",", "", $node->field_booking_amount_indian['und']['0']['value']);
+$booking_amt_us = str_replace(",", "", $node->field_booking_amount_us['und']['0']['value']);
 $pending_amt=$node->field_trip_price['und']['0']['value']-$booking_amt;
 $trip_booking=false;
-$trip_cost=""; 
+$trip_cost="";
 if($trip_amt){
-$trip_cost='<span><i class="icon-rupee"></i></span>'.$node->field_trip_price['und']['0']['value'];	
+$trip_cost='<span><i class="icon-rupee"></i></span>'.$node->field_trip_price['und']['0']['value'];
 }
 $note_icon='';
 if($trip_amt_us){
-$trip_cost.=' / <span><i class="icon-dollar"></i></span>'.$node->field_trip_price_us['und']['0']['value'];	
+$trip_cost.=' / <span><i class="icon-dollar"></i></span>'.$node->field_trip_price_us['und']['0']['value'];
 $note_icon='&nbsp;<a data-toggle="tooltip" data-placement="bottom" title="&#8377; price of Indians / $ price for Foreigners. Difference in price because of differential permit fee and/or cost of internal flights for Indians & foreigners."><i class="glyphicon glyphicon-question-sign" style="font-size:20px"></i></a>';
-}	
+}
 
 foreach ($content['field_trip_date']['#items'] as $key=> $item) {
 	if(strtotime($item['value'])> strtotime(date('Y-m-d') )){
 	$trip_booking=true;
 	break;
-	}	
+	}
 }
 $inquireNote='<small class="mdFont">We suggest that you use the <strong>Inquire Now</strong> button for further details.</small>';
 ?>
@@ -156,15 +156,15 @@ $inquireNote='<small class="mdFont">We suggest that you use the <strong>Inquire 
 	  <div class="clearfix"></div>
   </div>
   <?php if($node->field_trip_leader['und']['0']['target_id']){
-	print (views_embed_view('trip_leader', 'block',array($node->field_trip_leader['und']['0']['target_id'])));  
+	print (views_embed_view('trip_leader', 'block',array($node->field_trip_leader['und']['0']['target_id'])));
 	}else{ ?><div class="col-xs-12 col-sm-4 col-md-3 noP bodr-lft">
-	<hr class="visible-xs">  
+	<hr class="visible-xs">
 		<div class="trip-leader"> <span><strong>TBA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><br>Trip leader</span>
 		  <span class="trip_user">
-				 <img src="/sites/default/files/styles/profile_100x100/public/user_pictures/default.png" alt="default" >                      
+				 <img src="/sites/default/files/styles/profile_100x100/public/user_pictures/default.png" alt="default" >
 		  </span>
 	    </div>
-    </div>			
+    </div>
 	<?php } ?>
 <!--<div class="ever_part">
 <div class="white-wrapper">
@@ -189,7 +189,7 @@ $inquireNote='<small class="mdFont">We suggest that you use the <strong>Inquire 
 	 <?php if($trip_booking){ ?>
 	        <div class="col-xs-12 col-sm-7 col-md-9 noP">
 			<ul class="radio" id='radioBox'>
-			<?php 
+			<?php
 			foreach ($content['field_trip_date']['#items'] as $key=> $item) {
 			  if(strtotime($item['value'])> strtotime(date('Y-m-d') )){
 			?>
@@ -205,15 +205,15 @@ $inquireNote='<small class="mdFont">We suggest that you use the <strong>Inquire 
 	                  <?php } ?>
 					  <input type="hidden" name="trip_currency" value="INR">
 			<?php if((strtotime($item['value'])> strtotime("+1 month",strtotime(date('Y-m-d') )))&& ($booking_amt >0)){?>
-					  <input type="hidden" name="booking_amount" value="<?php print $booking_amt;?>">					 
-					  <input type="hidden" name="booking_amount_us" value="<?php print $booking_amt_us;?>">					 
+					  <input type="hidden" name="booking_amount" value="<?php print $booking_amt;?>">
+					  <input type="hidden" name="booking_amount_us" value="<?php print $booking_amt_us;?>">
 
-					 <!--<p class="book_btn even"> 
-					 
+					 <!--<p class="book_btn even">
+
 					 <input type="Submit" name="advanced" value="BOOK NOW"></p>-->
-			<?php }?>	
+			<?php }?>
 			</form> <div class="check"></div></li>
-			<?php } 
+			<?php }
 			}?>
 			</ul>
 			</div>
@@ -222,7 +222,7 @@ $inquireNote='<small class="mdFont">We suggest that you use the <strong>Inquire 
 			<div class="trip-price tripPrice pull-left">
 			  <h4><?php print $trip_cost; ?></h4>
 			  <small class="pull-right">Trip cost</small>
-			</div> 
+			</div>
 				<?php if($trip_amt_us){ ?>
 				<div class="trip-price currency pull-left">
 				  <h5><select name="currency1"><option value="">Select Currency</option><option value="INR">INR</option><option value="USD">USD</option></select></h5>
@@ -234,25 +234,25 @@ $inquireNote='<small class="mdFont">We suggest that you use the <strong>Inquire 
         		<input type="Submit" id="submitButton1" class="book_btn btn btn-primary btn-md pull-right" value="Book Now">
 				</div>
 		   <?php } ?>
-				 
+
 			<?php if(!$trip_booking){ ?>
 					<form method="post" action="/trip-order-form">
 					  <input type="hidden" name="trip_type" value="1">
   					  <input type="hidden" name="select_trip" value="<?php print $node->nid;?>">
 					  <input type="hidden" name="trip_amount" value="<?php print $node->field_trip_price['und']['0']['value'];?>">
 					 <p class="book_btn"><input type="Submit" name="submit" class="book_btn btn btn-primary btn-md"  value="Book Now"></p>
-					</form>	
-		   	<?php } ?>	
+					</form>
+		   	<?php } ?>
 		 <!--Form end-->
 
         </div>
           </div>
 	<div class="white-wrapper"><a class="inquiryBtn">Send Inquiry</a></div>
- 
+
 </div>
 
 <!--Trip Inquiry -->
-<div class="row inquiryBox">	
+<div class="row inquiryBox">
 <div class="bookingForm col-xs-12" style="background-color:#efefef!important">
 	 <div class="white-wrapper">
 	 <form method="get" action="/trip-request" target="_blank" style="display: inline;" name="formInquiry<?php print $key ?>">
@@ -260,13 +260,13 @@ $inquireNote='<small class="mdFont">We suggest that you use the <strong>Inquire 
 	 <?php if($trip_booking){ ?>
 	        <div class="col-xs-12 col-sm-7 col-md-9 noP">
 			<ul class="radio">
-			<?php 
+			<?php
 			foreach ($content['field_trip_date']['#items'] as $key=> $item) {
 			  if(strtotime($item['value'])> strtotime(date('Y-m-d') )){
 			?>
           <li><input type="radio" name="trip-date" id="dateInquiry1Key<?php print $key ?>" value="<?php print strip_tags($content['field_trip_date'][$key]['#markup']);?>"><label for="dateInquiry1Key<?php print $key ?>"><?php print strip_tags($content['field_trip_date'][$key]['#markup']);?></label>
 			  <div class="check"></div></li>
-			<?php } 
+			<?php }
 			}?>
 			</ul>
 			</div>
@@ -280,21 +280,21 @@ $inquireNote='<small class="mdFont">We suggest that you use the <strong>Inquire 
 			<?php }	?>
         		<input type="Submit" id="inquiry1Button" class="book_btn btn btn-primary btn-inquire btn-md pull-right" value="Inquire Now">
 				</div>
-		   <?php } ?>			 
+		   <?php } ?>
 			<?php if(!$trip_booking){ ?>
 					  <input type="hidden" name="trip_type" value="1">
   					  <input type="hidden" name="select_trip" value="<?php print $node->nid;?>">
 					  <input type="hidden" name="trip_amount" value="<?php print $node->field_trip_price['und']['0']['value'];?>">
 					 <p class="book_btn"><input type="Submit" name="submit" class="book_btn btn btn-primary btn-md"  value="Inquire Now"></p>
-					
+
 		   	<?php } ?>
-			</form>		
+			</form>
         </div>
-    </div>	
+    </div>
 <div class="white-wrapper">
 <?php print $inquireNote;?>
 <a class="bookingBtn">Book Now</a></div>
-</div>	
+</div>
 <!--Trip Inquiry -->
 <!--tabs-->
 <div id="treking_tab"></div>
@@ -319,6 +319,14 @@ $inquireNote='<small class="mdFont">We suggest that you use the <strong>Inquire 
                     <a href="#photo">photo gallery</a>
                     <hr class="nav-under">
                   </li>
+                  <li >
+                    <a href="#">Map</a>
+                    <hr class="nav-under">
+                  </li>
+                  <li >
+                    <a href="#">Reviews</a>
+                    <hr class="nav-under">
+                  </li>
                   <!--<li >
                     <a href="#trip" aria-controls="trip" role="tab" data-toggle="tab">trip stories</a>
                      <hr class="nav-under">
@@ -328,7 +336,7 @@ $inquireNote='<small class="mdFont">We suggest that you use the <strong>Inquire 
               </div>
             </div>
 			<!--tabs-->
- </div> 			
+ </div>
 			<!-- Tab panes -->
           <div class="row">
             <div class="tab-content">
@@ -394,16 +402,16 @@ $inquireNote='<small class="mdFont">We suggest that you use the <strong>Inquire 
                 </div>
               </div>
             </div>
-          					  		  
+
 		 </div>
-		  <!--Tab-->	
+		  <!--Tab-->
 <div class="row bookingBox">
    <div class="bookingForm col-xs-12" style="background-color:#efefef!important">
 	 <div class="white-wrapper">
 	 <?php if($trip_booking){ ?>
 	        <div class="col-xs-12 col-sm-7 col-md-9 noP">
 			<ul class="radio">
-			<?php 
+			<?php
 			foreach ($content['field_trip_date']['#items'] as $key=> $item) {
 			  if(strtotime($item['value'])> strtotime(date('Y-m-d') )){
 			?>
@@ -419,15 +427,15 @@ $inquireNote='<small class="mdFont">We suggest that you use the <strong>Inquire 
 					  <input type="hidden" name="trip_amount_us" value="<?php print $node->field_trip_price_us['und']['0']['value'];?>">
 	                  <?php } ?>
 			<?php if((strtotime($item['value'])> strtotime("+1 month",strtotime(date('Y-m-d') )))&& ($booking_amt >0)){?>
-					  <input type="hidden" name="booking_amount" value="<?php print $booking_amt;?>">					 
-					  <input type="hidden" name="booking_amount_us" value="<?php print $booking_amt_us;?>">					 
+					  <input type="hidden" name="booking_amount" value="<?php print $booking_amt;?>">
+					  <input type="hidden" name="booking_amount_us" value="<?php print $booking_amt_us;?>">
 
-					 <!--<p class="book_btn even"> 
-					 
+					 <!--<p class="book_btn even">
+
 					 <input type="Submit" name="advanced" value="BOOK NOW"></p>-->
-			<?php }?>	
+			<?php }?>
 			</form> <div class="check"></div></li>
-			<?php } 
+			<?php }
 			}?>
 			</ul>
 			</div>
@@ -448,21 +456,21 @@ $inquireNote='<small class="mdFont">We suggest that you use the <strong>Inquire 
         		<input type="Submit" id="submitButton" class="book_btn btn btn-primary btn-md pull-right" value="Book Now">
 				</div>
 		   <?php } ?>
-				 
+
 			<?php if(!$trip_booking){ ?>
 					<form method="post" action="/trip-order-form">
 					  <input type="hidden" name="trip_type" value="1">
   					  <input type="hidden" name="select_trip" value="<?php print $node->nid;?>">
 					  <input type="hidden" name="trip_amount" value="<?php print $node->field_trip_price['und']['0']['value'];?>">
 					 <p class="book_btn"><input type="Submit" name="submit" class="book_btn btn btn-primary btn-md"  value="Book Now"></p>
-					</form>	
-		   	<?php } ?>	
+					</form>
+		   	<?php } ?>
         </div>
-    </div>	
+    </div>
 <div class="white-wrapper"><a class="inquiryBtn">Send Inquiry</a></div>
-</div>	
+</div>
 <!--Trip Inquiry -->
-<div class="row inquiryBox">	
+<div class="row inquiryBox">
 <div class="bookingForm col-xs-12" style="background-color:#efefef!important">
 	 <div class="white-wrapper">
 	 <form method="get" action="/trip-request" target="_blank" style="display: inline;" name="formInquiry<?php print $key ?>">
@@ -470,13 +478,13 @@ $inquireNote='<small class="mdFont">We suggest that you use the <strong>Inquire 
 	 <?php if($trip_booking){ ?>
 	        <div class="col-xs-12 col-sm-7 col-md-9 noP">
 			<ul class="radio">
-			<?php 
+			<?php
 			foreach ($content['field_trip_date']['#items'] as $key=> $item) {
 			  if(strtotime($item['value'])> strtotime(date('Y-m-d') )){
 			?>
           <li><input type="radio" name="trip-date" id="dateInquiryKey<?php print $key ?>" value="<?php print strip_tags($content['field_trip_date'][$key]['#markup']);?>"><label for="dateInquiryKey<?php print $key ?>"><?php print strip_tags($content['field_trip_date'][$key]['#markup']);?></label>
 			  <div class="check"></div></li>
-			<?php } 
+			<?php }
 			}?>
 			</ul>
 			</div>
@@ -490,23 +498,23 @@ $inquireNote='<small class="mdFont">We suggest that you use the <strong>Inquire 
 			<?php }	?>
         		<input type="Submit" id="inquiryButton" class="book_btn btn btn-primary btn-inquire btn-md pull-right" value="Inquire Now">
 				</div>
-		   <?php } ?>			 
+		   <?php } ?>
 			<?php if(!$trip_booking){ ?>
 					  <input type="hidden" name="trip_type" value="1">
   					  <input type="hidden" name="select_trip" value="<?php print $node->nid;?>">
 					  <input type="hidden" name="trip_amount" value="<?php print $node->field_trip_price['und']['0']['value'];?>">
 					 <p class="book_btn"><input type="Submit" name="submit" class="book_btn btn btn-primary btn-md"  value="Inquire Now"></p>
-					
+
 		   	<?php } ?>
-			</form>		
+			</form>
         </div>
-    </div>	
+    </div>
 <div class="white-wrapper">
 <?php print $inquireNote;?>
 <a class="bookingBtn">Book Now</a></div>
 	<!--Trip Inquiry -->
-	
-</div>		  
+
+</div>
 <style>
 .inquiryBtn,.bookingBtn{float:right;cursor:pointer;font-size:15px;font-weight:500;padding:5px 8px;text-decoration:underline;}
 .bookingBox{  display:none;}

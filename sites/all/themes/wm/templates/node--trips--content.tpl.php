@@ -82,8 +82,8 @@
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> content clearfix"<?php print $attributes; ?>>
 
-	<div class="trip-detail"> 
-		 <h2><?php print $title; ?></a></h2> 
+	<div class="trip-detail">
+		 <h2><?php print $title; ?></a></h2>
 		<?php print render($content['field_trip_main_image']);?>
 		  <span class="pull-right"><?php print render($content['sharethis']);?></span>
 	</div>
@@ -98,16 +98,16 @@
         <div class="panel-body">
 		 <div class="level">
 				<?php print render($content['body']);?>
-			
+
 				<?php print render($content['field_trip_price']);?>
 				<?php print render($content['field_location']);?>
 				<?php print render($content['field_actual_duration']);?>
 				<?php print render($content['field_exp']);?>
 				<?php print render($content['field_trip_type']);?>
 			</div>
-		
+
 			<h4><a href="#" class="btn btn-primary" role="button">BOOK NOW</a></h4>
-			
+
 		</div>
      </div>
 	</div>
@@ -179,8 +179,8 @@
      </div>
 	</div>
 	<?php } ?>
- </div>	
-  
+ </div>
+
   <?php print render($content); ?>
   <?php print render($content['links']); ?>
   <?php //print render($content['comments']); ?>
